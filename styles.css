@@ -41,3 +41,15 @@ a:hover {
 #register {
     text-align: center;
 }
+/* ############################# */
+/* ######### hometown ########## */
+/* ############################# */
+
+#fuan td{
+    padding: 10px 190px 10px 20px;
+}
+
+#fuan * {
+    text-align: left!important;
+    /* border-collapse: collapse; */
+}
