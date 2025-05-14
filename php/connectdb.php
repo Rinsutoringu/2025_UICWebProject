@@ -1,0 +1,13 @@
+<?php
+$servername = "192.168.101.103";
+$username = "root";
+$password = "WPR_2333";
+$dbname = "WebProj";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}

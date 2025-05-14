@@ -7,7 +7,7 @@
         {
         "name": "Launch Chrome for JS Debugging",
         "type": "msedge",
-        "request": "launch",
+        "request":"launch",
         "url": "http://localhost:8000",
         "webRoot": "${workspaceFolder}"
         },
@@ -38,18 +38,18 @@
             "request": "launch",
             "runtimeArgs": [
                 "-dxdebug.mode=debug",
-                "-dxdebug.start_with_request=no",
+                "-dxdebug.start_with_request=yes",
                 "-S",
                 "localhost:8000"
             ],
             "program": "",
             "cwd": "${workspaceRoot}",
             "port": 9004,
-            "serverReadyAction": {
-                "pattern": "Listening on (http://localhost:([0-9]+))",
-                "uriFormat": "%s",
-                "action": "openExternally"
-            }
+          "serverReadyAction": {
+              "pattern": "Development Server \\(http://localhost:([0-9]+)\\) started",
+              "uriFormat": "http://localhost:%s",
+              "action":"openExternally"
+          }
         }
     ],
     "compounds": [

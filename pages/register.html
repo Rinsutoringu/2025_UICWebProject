@@ -10,21 +10,22 @@
 </head>
 <body>
     <div id="register">
-        <form>
+        <form method="post" action="../php/register.php" onsubmit="return registerNewMember(event)">
             <h2>Register New Members Form</h2>
             <label for="username">Username:</label>
             <br>
-            <input type="text" id="username" name="username" placeholder="New member username" type="text">
+            <input type="text" id="usr" name="username" placeholder="New member username">
             <br>
             <label for="password">Password:</label>
             <br>
-            <input type="password" id="password" name="password" placeholder="Enter your password" type="password">
+            <input type="password" id="pwd" name="password" placeholder="Enter your password">
             <br>
             <label for="confirm-password">Confirm Password:</label>
             <br>
-            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" type="password">
+            <input type="password" id="repwd" name="confirmpassword" placeholder="Confirm your password">
             <br><br>
             <input type="submit" value="Register">
+            <!-- 使用post把获取的用户数据传给php来操作数据库 -->
         </form>
     </div>
 </body>

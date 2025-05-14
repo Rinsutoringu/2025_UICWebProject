@@ -99,3 +99,22 @@ function showSelectedHometown() {
             break;
     }
 }
+
+function registerNewMember(event) {
+    // Prevent the default form submission
+    event.preventDefault();
+
+    const name = document.getElementById("usr").value;
+    const password = document.getElementById("pwd").value;
+    const confirmpassword = document.getElementById("repwd").value;
+    if (!name || !password || !confirmpassword) {
+        alert("Please fill in all fields.");
+        return false;
+    }
+    if (password !== confirmpassword) {
+        alert("Passwords do not match.");
+        return false;
+    }
+    event.target.submit(); 
+    return true;
+}
