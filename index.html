@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>head</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    
+</head>
+<body>
+
+    <table border="1" >
+        <thead id ="topview" >
+            <tr>
+                <!-- 超链接触发js函数 -->
+                <th><a href="javascript:void(0);" id = "hometowns" onclick="loadHTML('hometown.html', 'maintablebody')">Our Home Town</a></th>
+                <th><a href="javascript:void(0);" id = "login" onclick="doubleLoad('login.html','register.html', 'leftview', 'rightview')">Login/Register</a></th>
+                <th><a href="javascript:void(0);" id = "about" onclick="loadHTML('aboutus.html', 'maintablebody')">About Us</a></th>
+            </tr>
+        </thead>
+        <tbody id = "maintablebody">
+            <td colspan="2" ><div id="leftview"></div></td>
+            <td colspan="1"><div id="rightview"></div></td>
+        </tbody>
+    </table>
+    
+</body>
+</html>
+  
