@@ -1,7 +1,7 @@
 /* ############################# */
 /* ####### Gloable Var ####### */
 /* ############################# */
-/* 全局变量 */
+
 :root {
   --main-bg-color: #f2f2f2;
   --main-text-color: #441b7a;
@@ -13,7 +13,7 @@
 /* ############################# */
 
 #topview {
-  border-collapse: collapse; /* 设置在表格上 */
+  border-collapse: collapse; 
 }
 
 #topview th {

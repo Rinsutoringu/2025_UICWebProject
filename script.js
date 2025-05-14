@@ -10,30 +10,11 @@ function loadHTML(fileName, targetId) {
     xhr.open("GET", `../php/setpage.php?file=${fileName}`, true);
     xhr.onload = function () {
 
-        // DEBUG
-        console.log("服务器返回状态", xhr.status); // 调试信息
-
-        // console.log("Request completed with status:", xhr.status);
         if (xhr.status === 200) {
             document.getElementById(targetId).innerHTML = xhr.responseText;
-            
-            // DEBUG
-            console.log("内容成功载入至 ", targetId);
-
-            // console.log("Content loaded successfully into:", targetId);
-        } else {
-
-            // DEBUG
-            console.error("文件加载失败", xhr.status);
-
-            // console.error("Failed to load file:", xhr.status);
-        }
+        } else {console.error("Error loading file:", fileName, "Status:", xhr.status);}
     };
     xhr.onerror = function () {
-        // DEBUG
-        console.error("网络错误", fileName);
-
-        // console.error("Network error occurred while loading file:", fileName);
     };
     xhr.send();
 }
@@ -42,21 +23,13 @@ function doubleLoad(filename1, filename2, targetId1, targetId2) {
     loadHTML("doubleframe.html", "maintablebody");
     loadHTML(filename1, targetId1);
     loadHTML(filename2, targetId2);
-    // DEBUG
-    console.log("双组件载入函数初始化完成", filename1, filename2);
-    
-    // console.log("Double load completed for:", filename1, filename2);
 }
 
-// When webpage load success, this function will be called.
-
 let isLoaded = false;
-
 window.onload = function () {
     if (!isLoaded) {
         loadHTML("hometown.html", "maintablebody");
     }
-    
 }
 
 function showSelectedHometown() {
@@ -91,11 +64,6 @@ function showSelectedHometown() {
 
         default:
             displayInput.value = "Invalid selection";
-
-            // DEBUG
-            console.log("你选择了： " + selectedHometown);
-
-            // console.log("You chose: " + selectedHometown);
             break;
     }
 }
@@ -169,7 +137,7 @@ function showlogin() {
     fetch("../php/checklogin.php")
         .then(response => response.json())
         .then(data => {
-            console.log("Login status:", data); // 调试日志
+            console.log("Login status:", data);
             if (data.logged_in) {
                 doubleLoad('alreadylogin.html', 'alreadylogin.html', 'leftview', 'rightview');
             } else {
@@ -177,7 +145,7 @@ function showlogin() {
             }
         })
         .catch(error => {
-            console.error("Error fetching login status:", error); // 捕获错误
+            console.error("Error fetching login status:", error);
         });
 }
 
@@ -193,7 +161,7 @@ function showhometown() {
     fetch("../php/checklogin.php")
         .then(response => response.json())
         .then(data => {
-            console.log("Login status:", data); // 调试日志
+            console.log("Login status:", data);
             if (data.logged_in) {
                 loadHTML('hometownlogin.html', 'maintablebody')
             } else {
@@ -201,7 +169,7 @@ function showhometown() {
             }
         })
         .catch(error => {
-            console.error("Error fetching login status:", error); // 捕获错误
+            console.error("Error fetching login status:", error);
         });
 }
 
