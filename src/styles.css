@@ -1,24 +1,43 @@
+/* ############################# */
+/* ####### Gloable Var ####### */
+/* ############################# */
+/* 全局变量 */
+:root {
+  --main-bg-color: #f2f2f2;
+  --main-text-color: #441b7a;
+  --accent-color: #ffa500;
+  --hover-color: #ff1d00;
+}
+/* ############################# */
+/* ########### Head ############ */
+/* ############################# */
+
 #topview {
   border-collapse: collapse; /* 设置在表格上 */
 }
 
 #topview th {
-  background-color: #f2f2f2;
-  color: #441b7a;
-  background: #ffa500;
+  color: var(--main-text-color);
+  background: var(--accent-color);
   padding: 10px 120px 10px 10px;
   font-size: 40px;
   text-align: left;
 }
-
-/* Put mouse hover effect on links, it change to red */
+/* Mouse Hover color */
 a:hover {
-  color: #ff1d00;
-  
+  color: var(--hover-color);
 }
+/* ############################# */
+/* ########### login ########### */
+/* ############################# */
+
 #login {
     text-align: center;
 }
+/* ############################# */
+/* ######### Register ######### */
+/* ############################# */
+
 #register {
     text-align: center;
 }
