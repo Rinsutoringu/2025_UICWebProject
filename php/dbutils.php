@@ -44,9 +44,9 @@ function getPwd($table, $id) {
  * @return bool true if the user was registered successfully, false otherwise
  * @throws Exception if the table does not exist
  */
-function register($table, $id, $password) {
+function register($table, $username, $password) {
     global $conn;
-    $sql = "INSERT INTO $table (id, password) VALUES ('$id', '$password')";
+    $sql = "INSERT INTO $table (username, password, regdate, state, ordered) VALUES ('$username', '$password', NOW(), 1, 'none')";
     if ($conn->query($sql) === TRUE) {
         return true;
     } else {
@@ -54,8 +54,14 @@ function register($table, $id, $password) {
     }
 }
 
+/**
+ * check if a table exists
+ * @param string $table the name of the table to check
+ * @return bool true if the table exists, false otherwise
+ */
 function checkTableExists($table) {
     global $conn;
+    // $sql = "SELECT "
     $sql = "SHOW TABLES LIKE '$table'";
     $result = $conn->query($sql);
     return $result->num_rows > 0;

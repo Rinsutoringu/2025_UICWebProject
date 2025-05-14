@@ -24,7 +24,7 @@ function loadHTML(fileName, targetId) {
         } else {
 
             // DEBUG
-            console.error("文加载失败", xhr.status);
+            console.error("文件加载失败", xhr.status);
 
             // console.error("Failed to load file:", xhr.status);
         }
@@ -117,4 +117,33 @@ function registerNewMember(event) {
     }
     event.target.submit(); 
     return true;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    fetch(Response => Response.json())
+        .then(data => {
+            if (data.logged_in) {
+                const dynamicButton = document.getElementById("dynamic-button");
+                dynamicButton.innerHTML = `<button id="subscribe" onclick="subscribe()">subscribe this!</button>`;
+            }
+        })
+});
+
+function subscribe() {
+    // TODO
+    userchoice = document.getElementById("hometown").value;
+    if (userchoice === "default") {
+        alert("Please select a hometown first.");
+        return;
+    }
+    fetch("../php/subscribe.php", {
+        // post method
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            hometown: userchoice
+        })
+    })
 }
