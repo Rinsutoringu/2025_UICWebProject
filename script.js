@@ -34,3 +34,26 @@ function doubleLoad(filename1, filename2, targetId1, targetId2) {
 window.onload = function () {
     loadHTML("hometown.html", "maintablebody");
 }
+
+function showSelectedHometown() {
+    const selectedHometown = document.getElementById("hometown").value;
+    switch (selectedHometown) {
+        case 0:
+            loadHTML("fuan.html", "showhometown");
+            alert("Selected hometown is 0");
+            break;
+        
+        case 1:
+            alert("Selected hometown is 1");
+            break;
+
+        case 2:
+            alert("Selected hometown is 2");
+            break;
+
+        default:
+            break;
+    }
+    // loadHTML("hometown.html", "showhometown");
+    console.log("Hometown loaded"); // 调试信息
+}
