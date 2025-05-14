@@ -129,6 +129,20 @@ document.addEventListener("DOMContentLoaded", () => {
         })
 });
 
+function loginMember(event) {
+    // Prevent the default form submission
+    event.preventDefault();
+
+    const usr = document.getElementById("usr").value;
+    const pwd = document.getElementById("pwd").value;
+    if (!usr || !pwd) {
+        alert("Please fill in all fields.");
+        return false;
+    }
+    event.target.submit(); 
+    return true;
+}
+
 function subscribe() {
     // TODO
     userchoice = document.getElementById("hometown").value;
@@ -146,4 +160,17 @@ function subscribe() {
             hometown: userchoice
         })
     })
+    // response a json, key:"success" value:true/false
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("Subscription successful!");
+        } else {
+            alert("Subscription failed.");
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        alert("An error occurred. Please try again.");
+    });
 }

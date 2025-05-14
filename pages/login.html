@@ -10,20 +10,18 @@
 <body>
     <!-- 创建一个矩形区域 -->
     <div id="login">
-        <form>
+        <form method="post" action="../php/login.php" onsubmit="return loginMember(event)">
         <H2>Login Form</H2>
         <label for="username">Username:</label>
         <br>
-        <input type="text" id="username" name="username" placeholder="Enter your username" type="text">
+        <input type="text" id="usr" name="usr" placeholder="Enter your username" type="text">
         <br>
         <label for="password">Password:</label>
         <br>
-        <input type="password" id="password" name="password" placeholder="Enter your password" type="password">
+        <input type="password" id="pwd" name="pwd" placeholder="Enter your password" type="password">
         <br><br>
         <input type="submit" value="Login">
     </form>
-
     </div>
-
 </body>
 </html>

@@ -54,6 +54,19 @@ function register($table, $username, $password) {
     }
 }
 
+
+function login($table, $username, $password) {
+    global $conn;
+    $sql = "SELECT * FROM $table WHERE username = '$username' AND password = '$password'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
 /**
  * check if a table exists
  * @param string $table the name of the table to check
