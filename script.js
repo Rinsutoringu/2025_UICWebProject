@@ -104,14 +104,14 @@ function registerNewMember(event) {
     // Prevent the default form submission
     event.preventDefault();
 
-    const name = document.getElementById("usr").value;
-    const password = document.getElementById("pwd").value;
-    const confirmpassword = document.getElementById("repwd").value;
-    if (!name || !password || !confirmpassword) {
+    const regusr = document.getElementById("regusr").value;
+    const regpwd = document.getElementById("regpwd").value;
+    const reregpwd = document.getElementById("reregpwd").value;
+    if (!regusr || !regpwd || !reregpwd) {
         alert("Please fill in all fields.");
         return false;
     }
-    if (password !== confirmpassword) {
+    if (regpwd !== reregpwd) {
         alert("Passwords do not match.");
         return false;
     }
@@ -173,4 +173,16 @@ function subscribe() {
         console.error("Error:", error);
         alert("An error occurred. Please try again.");
     });
+}
+
+function showLogin() {
+    fetch("../php/loginstate.php")
+        .then(response => response.json())
+        .then(data => {
+            if (data.logged_in) {
+                doubleLoad('alreadylogin.html','alreadylogin.html', 'leftview', 'rightview')
+            } else {
+                doubleLoad('login.html','register.html', 'leftview', 'rightview')
+            }
+        });
 }

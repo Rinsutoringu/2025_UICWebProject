@@ -5,8 +5,8 @@ include "connectdb.php";
 $table = "users";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+    $regusr = $_POST["regusr"];
+    $regpwd = $_POST["regpwd"];
 
     if (!checkTableExists($table)) {
         echo "Table does not exist.";
@@ -14,12 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     echo "Table exists.";
 
-    if (getPwd($table, $username) !== null) {
+    if (getPwd($table, $regusr) !== null) {
         echo "User already exists.";
         exit();
     }
 
-    if (!register($table, $username, $password)) {
+    if (!register($table, $regusr, $regpwd)) {
         echo "Failed to register user.";
         exit();
     }

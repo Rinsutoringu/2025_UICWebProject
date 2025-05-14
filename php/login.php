@@ -26,7 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     echo "User login successfully.";
-    // echo "<script>loadHTML(\"../pages/towns/hometown.html\", \"maintablebody\");</script>";
     header("Location: ../pages/loginsuccess.html");
     exit();
 }
