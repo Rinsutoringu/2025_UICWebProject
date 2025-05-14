@@ -1,6 +1,7 @@
 <?php
 include "dbutils.php";
 include "connectdb.php";
+include "loginutils.php";
 
 $table = "users";
 
@@ -27,5 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "User registered successfully.";
     // echo "<script>loadHTML(\"../pages/towns/hometown.html\", \"maintablebody\");</script>";
     header("Location: ../pages/loginsuccess.html");
+    setreg();
     exit();
 }
