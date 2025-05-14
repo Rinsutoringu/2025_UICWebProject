@@ -1,6 +1,6 @@
 <?php
 // filepath: d:\dev\Web-Developement-Workshop\2025_UICWebProject\src\php\setpage.php
-
+session_start();
 // 指定要读取的 HTML 文件路径
 $directory = "../pages/"; // HTML 文件所在目录
 $filename = isset($_GET['file']) ? $_GET['file'] : ""; // 从请求中获取文件名

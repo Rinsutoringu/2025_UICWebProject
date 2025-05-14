@@ -119,26 +119,6 @@ function registerNewMember(event) {
     return true;
 }
 
-// basic $_SESSION['logged_in'] to check if user is logged in
-// if logged in, show the button
-document.addEventListener("DOMContentLoaded", () => {
-    fetch("../php/checklogin.php")
-        .then(response => response.json()) 
-        .then(data => {
-            if (data.logged_in) {
-                const dynamicButton = document.getElementById("dynamic-button");
-                if (dynamicButton) {
-                    dynamicButton.innerHTML = `<button id="subscribe" onclick="subscribe()">subscribe this!</button>`;
-                } else {
-                    console.error("Element with id 'dynamic-button' not found.");
-                }
-            }
-        })
-        .catch(error => {
-            console.error("Error fetching login status:", error);
-        });
-});
-
 function loginMember(event) {
     // Prevent the default form submission
     event.preventDefault();
@@ -204,3 +184,24 @@ function showlogin() {
 function logout() {
     fetch("../php/logout.php")
 }
+
+function showhometown() {
+    
+    loadHTML('hometown.html', 'maintablebody')
+}
+function showhometown() {
+    fetch("../php/checklogin.php")
+        .then(response => response.json())
+        .then(data => {
+            console.log("Login status:", data); // 调试日志
+            if (data.logged_in) {
+                loadHTML('hometownlogin.html', 'maintablebody')
+            } else {
+                loadHTML('hometown.html', 'maintablebody')
+            }
+        })
+        .catch(error => {
+            console.error("Error fetching login status:", error); // 捕获错误
+        });
+}
+

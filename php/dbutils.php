@@ -9,6 +9,7 @@ include "connectdb.php";
  * @throws Exception if the table does not exist
  */
 function getAll($table) {
+    session_start();
     global $conn;
     $sql = "SELECT * FROM $table";
     $result = $conn->query($sql);
@@ -26,6 +27,7 @@ function getAll($table) {
  * @return string|null the password of the user or null if not found
  */
 function getPwd($table, $id) {
+    session_start();
     global $conn;
     $sql = "SELECT password FROM $table WHERE id = '$id'";
     $result = $conn->query($sql);
@@ -45,6 +47,7 @@ function getPwd($table, $id) {
  * @throws Exception if the table does not exist
  */
 function register($table, $username, $password) {
+    session_start();
     global $conn;
     $sql = "INSERT INTO $table (username, password, regdate, state, ordered) VALUES ('$username', '$password', NOW(), 1, 'none')";
     if ($conn->query($sql) === TRUE) {
@@ -56,6 +59,7 @@ function register($table, $username, $password) {
 
 
 function login($table, $username, $password) {
+    session_start();
     global $conn;
     $sql = "SELECT * FROM $table WHERE username = '$username' AND password = '$password'";
     $result = $conn->query($sql);
@@ -73,6 +77,7 @@ function login($table, $username, $password) {
  * @return bool true if the table exists, false otherwise
  */
 function checkTableExists($table) {
+    session_start();
     global $conn;
     // $sql = "SELECT "
     $sql = "SHOW TABLES LIKE '$table'";

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hometown</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../script.js" defer></script>
+</head>
+<body>
+    <table border="1">
+        <tbody>
+            <tr>
+                <!-- 顶部代码块 -->
+                <!-- 该框元素均居中 -->
+                <th colspan="3">
+                    <form>
+                        <b>HomeTownForm</b><br><br>
+                        <!-- 下拉框 -->
+                        <select id="hometown" name="hometown" onchange="showSelectedHometown()">
+                            <option value="default" selected disabled>Select your hometown</option>
+                            <option value="hometown1">HomeTown 1</option>
+                            <option value="hometown2">HomeTown 2</option>
+                            <option value="hometown3">HomeTown 3</option>
+                            <option value="hometown4">HomeTown 4</option>
+                        </select><br><br>
+                        <label for="showselect-hometown">Your city selected is:</label>
+                        <input type="text" id="showselect-hometown" name="showselect-hometown" placeholder="Show selected hometown" readonly>
+                        <br><br>
+                    </form>
+                    <button id="subscribe" onclick="subscribe()">subscribe this!</button>
+                </th>
+                
+            </tr>
+            <tr>
+                <th colspan="3"><div id="showhometown"></div></th>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

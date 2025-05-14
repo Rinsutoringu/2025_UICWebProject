@@ -4,6 +4,7 @@ include "connectdb.php";
 include "loginutils.php";
 
 $table = "users";
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $regusr = $_POST["regusr"];
