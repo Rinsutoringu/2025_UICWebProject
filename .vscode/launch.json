@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-        "name": "Launch Chrome for JS Debugging",
+        "name": "Launch Edge for JS Debugging",
         "type": "msedge",
         "request":"launch",
         "url": "http://localhost:8000",
@@ -55,15 +55,15 @@
     "compounds": [
         {
         "name": "[With JS] Listen for Xdebug",
-        "configurations": ["Listen for Xdebug", "Launch Chrome for JS Debugging"]
+        "configurations": ["Listen for Xdebug", "Launch Edge for JS Debugging"]
         },
         {
         "name": "[With JS] Launch currently open script",
-        "configurations": ["Launch currently open script", "Launch Chrome for JS Debugging"]
+        "configurations": ["Launch currently open script", "Launch Edge for JS Debugging"]
         },
         {
         "name": "[With JS] Launch Built-in web server",
-        "configurations": ["Launch Built-in web server", "Launch Chrome for JS Debugging"]
+        "configurations": ["Launch Built-in web server", "Launch Edge for JS Debugging"]
         }
     ]
 }

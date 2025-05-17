@@ -13,7 +13,11 @@
 
 **关于配置php vscode debug的事情**
 
-- 首先需要配置好xdebug
+- 给vscode安装对应的debug插件
+
+  <img src="assets/image-20250517184746108.png" alt="image-20250517184746108" style="zoom: 50%;" />
+
+- 确认你的xdebug确实装好了
 
 - 系统环境变量、插件的路径都要设置对
 
@@ -29,7 +33,7 @@
   xdebug.log="D:\environment\xampp\tmp\xdebug.log"  // 这里是个log文件，一些错误信息并不会输出到控制台，需要在log里确认
   ```
 
-- vscode的`launch.json`也需要修改！[xampp+vscode 安装PHP断点调试xdebug - 飞龙在生 - 博客园](https://www.cnblogs.com/flzs/p/17764736.html)
+- vscode的`launch.json`里面的**端口号**也需要修改！[xampp+vscode 安装PHP断点调试xdebug - 飞龙在生 - 博客园](https://www.cnblogs.com/flzs/p/17764736.html)
 
   ```json
   {
@@ -48,6 +52,6 @@
 
   
 
-- 配置完后vscode的调试器和xampp的apachi都需要重启！
-
 - 调试器端口连上但是路径设置的不对，会出现在代码运行时，断点断不住的情况，需要重新确认路径哪里配错了。
+
+
