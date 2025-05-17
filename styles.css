@@ -53,3 +53,35 @@ a:hover {
     text-align: left!important;
     /* border-collapse: collapse; */
 }
+/* ############################# */
+/* ########### button ########## */
+/* ############################# */
+.clickButton {
+  margin-top: 20px;
+}
+
+/* ############################# */
+/* ######### guestbook ######### */
+/* ############################# */
+.messagebox {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.messagebox strong {
+  color: #333;
+  font-weight: bold;
+}
+
+.deleteform {
+  display: inline;
+}
+
+textarea[name="content"] {
+  width: 100%;
+  max-width: 600px;
+  font-size: 1em;
+  padding: 8px;
+  margin-bottom: 10px;
+}

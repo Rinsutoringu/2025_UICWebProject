@@ -1,15 +1,11 @@
 <?php
-session_start();
-// HTML path
-$directory = "../pages/"; 
-// get file name
-$filename = isset($_GET['file']) ? $_GET['file'] : ""; 
-// Make full path
-$filepath = $directory . $filename;
-// check file is exist
-if (file_exists($filepath) && pathinfo($filepath, PATHINFO_EXTENSION) === "html") {
-    echo file_get_contents($filepath); 
+$file = $_GET['file'] ?? '';
+$baseDir = realpath(__DIR__ . '/../pages/');
+$target = realpath($baseDir . '/' . $file);
+
+if ($target && strpos($target, $baseDir) === 0 && file_exists($target)) {
+    readfile($target);
 } else {
-    echo "<p>File not found or invalid file type.</p>";
+    http_response_code(404);
+    echo "File not found.";
 }
-?>

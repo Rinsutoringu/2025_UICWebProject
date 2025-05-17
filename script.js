@@ -8,14 +8,8 @@ function loadHTML(fileName, targetId) {
     const xhr = new XMLHttpRequest();
     console.log("Preparing to load file:", fileName);
     xhr.open("GET", `../php/setpage.php?file=${fileName}`, true);
-    xhr.onload = function () {
-
-        if (xhr.status === 200) {
-            document.getElementById(targetId).innerHTML = xhr.responseText;
-        } else {console.error("Error loading file:", fileName, "Status:", xhr.status);}
-    };
-    xhr.onerror = function () {
-    };
+    console.log("Loading:", fileName, "into", targetId);
+    xhr.onload = function () {if (xhr.status === 200) document.getElementById(targetId).innerHTML = xhr.responseText;};
     xhr.send();
 }
 
@@ -173,3 +167,18 @@ function showhometown() {
         });
 }
 
+function jumpToIndexAndLoad() {
+    window.location.href = "../index.html?load=hometownlogin.html";
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const params = new URLSearchParams(window.location.search);
+    const page = params.get("load");
+    if (page) {
+        setTimeout(function() {
+            loadHTML(page, "maintablebody");
+        }, 0);
+    } else {
+        loadHTML("hometown.html", "maintablebody");
+    }
+});
