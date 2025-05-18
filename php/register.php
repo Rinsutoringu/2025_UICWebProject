@@ -1,7 +1,6 @@
 <?php
 include "dbutils.php";
 include "connectdb.php";
-include "loginutils.php";
 
 $table = "users";
 session_start();
@@ -10,10 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $regusr = $_POST["regusr"];
     $regpwd = $_POST["regpwd"];
 
-    if (!checkTableExists($table)) {
-        echo "Table does not exist.";
-        exit();
-    }
+
     echo "Table exists.";
 
     if (getPwd($table, $regusr) !== null) {
