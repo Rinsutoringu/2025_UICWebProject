@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     echo "User registered successfully.";
-    header("Location: ../pages/loginsuccess.html");
+    header("Location: ../pages/registersuccess.html");
     setreg();
     exit();
 }
