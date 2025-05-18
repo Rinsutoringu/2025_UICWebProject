@@ -4,6 +4,8 @@ $username = "root";
 $password = "WPR_2333";
 $dbname = "WebProj";
 
+$table = "users";
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 

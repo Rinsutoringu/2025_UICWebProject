@@ -149,6 +149,10 @@ function showlogin() {
 
 function logout() {
     fetch("php/logout.php")
+        .then(() => {
+            // 退出后跳转到首页或刷新页面
+            window.location.href = "index.html";
+        });
 }
 
 function showhometown() {

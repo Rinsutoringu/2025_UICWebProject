@@ -29,7 +29,7 @@ function getAll($table) {
 function getPwd($table, $id) {
     session_start();
     global $conn;
-    $sql = "SELECT password FROM $table WHERE id = '$id'";
+    $sql = "SELECT password FROM $table WHERE user_index = '$id'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         return $result->fetch_assoc()['password'];
