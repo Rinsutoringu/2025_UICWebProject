@@ -3,13 +3,17 @@
  * @param {*} fileName The file name to load
  * @param {*} targetId The target id to load the file into
  */
-
 function loadHTML(fileName, targetId) {
     const xhr = new XMLHttpRequest();
-    console.log("Preparing to load file:", fileName);
-    xhr.open("GET", `../php/setpage.php?file=${fileName}`, true);
-    console.log("Loading:", fileName, "into", targetId);
-    xhr.onload = function () {if (xhr.status === 200) document.getElementById(targetId).innerHTML = xhr.responseText;};
+    xhr.open("GET", "php/setpage.php?file=" + encodeURIComponent(fileName), true);
+    xhr.onload = function () {
+        const target = document.getElementById(targetId);
+        if (xhr.status === 200 && target) {
+            target.innerHTML = xhr.responseText;
+        } else if (!target) {
+            console.error("Target element not found:", targetId);
+        }
+    };
     xhr.send();
 }
 
@@ -102,7 +106,7 @@ function subscribe() {
         alert("Please select a hometown first.");
         return;
     }
-    fetch("../php/subscribe.php", {
+    fetch("php/subscribe.php", {
         // post method
         method: "POST",
         headers: {
@@ -128,7 +132,7 @@ function subscribe() {
 }
 
 function showlogin() {
-    fetch("../php/checklogin.php")
+    fetch("php/checklogin.php")
         .then(response => response.json())
         .then(data => {
             console.log("Login status:", data);
@@ -144,7 +148,7 @@ function showlogin() {
 }
 
 function logout() {
-    fetch("../php/logout.php")
+    fetch("php/logout.php")
 }
 
 function showhometown() {
@@ -152,7 +156,7 @@ function showhometown() {
     loadHTML('hometown.html', 'maintablebody')
 }
 function showhometown() {
-    fetch("../php/checklogin.php")
+    fetch("php/checklogin.php")
         .then(response => response.json())
         .then(data => {
             console.log("Login status:", data);

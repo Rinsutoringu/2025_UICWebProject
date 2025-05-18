@@ -1,7 +1,7 @@
 <?php
 $servername = "123.207.72.222:50091";
-$username = "Web_PrivateTest";
-$password = "mcc!eD.FQ8!]zfEH";
+$username = "root";
+$password = "WPR_2333";
 $dbname = "WebProj";
 
 // Create connection
