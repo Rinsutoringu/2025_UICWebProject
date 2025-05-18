@@ -85,3 +85,54 @@ textarea[name="content"] {
   padding: 8px;
   margin-bottom: 10px;
 }
+
+/* ############################# */
+/* ######### About us  ######### */
+/* ############################# */
+
+body {
+    background: #f7f7f7;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+.team-table {
+    margin: 40px auto;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    min-width: 600px;
+}
+.team-table th {
+    background: #4a90e2;
+    color: #fff;
+    font-size: 2rem;
+    padding: 20px 0;
+    letter-spacing: 2px;
+}
+.team-table td {
+    padding: 22px 16px;
+    text-align: center;
+    font-size: 1.3rem;
+    border-bottom: 1px solid #eaeaea;
+    vertical-align: middle
+}
+.team-table tr:last-child td {
+    border-bottom: none;
+}
+.team-photo {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2.5px solid #4a90e2;
+    box-shadow: 0 2px 8px rgba(74,144,226,0.15);
+    display: block;
+    margin: 0 auto;
+}
+@media (max-width: 700px) {
+    .team-table, .team-table th, .team-table td {
+        font-size: 0.95rem;
+        min-width: unset;
+    }
+}
