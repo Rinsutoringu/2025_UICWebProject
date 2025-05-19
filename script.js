@@ -118,7 +118,7 @@ function subscribe() {
         alert("Please select a hometown first.");
         return;
     }
-    fetch("../php/subscribe.php", {
+    fetch("php/subscribe.php", {
         // post method
         method: "POST",
         headers: {
@@ -160,7 +160,7 @@ function showlogin() {
 }
 
 function logout() {
-    fetch("../php/logout.php")
+    fetch("php/logout.php")
 }
 
 function showhometown() {
@@ -191,9 +191,9 @@ function updateSearchAction(selectedType) {
     const form = document.getElementById('searchForm');
     
     if (selectedType === 'user') {
-        form.action = '/php/searchusers.php';
+        form.action = 'php/searchusers.php';
     } else if (selectedType === 'city') {
-        form.action = '/php/searchcities.php';
+        form.action = 'php/searchcities.php';
     }
 }
 
