@@ -10,8 +10,22 @@ if (empty($keyword)) {
     exit();
 }
 
+// Define the hometown mapping
+$hometownMap = [
+    'hometown1' => 'Zhuhai',
+    'hometown2' => 'Shenzhen',
+    'hometown3' => 'Shenyang',
+    'hometown4' => 'Guangzhou',
+    'hometown5' => 'Hefei',
+    'hometown6' => 'Weifang'
+];
+
+// Reverse mapping to find the database value from the city name
+$reverseMap = array_flip($hometownMap);
+$searchValue = $reverseMap[$keyword] ?? $keyword;
+
 $stmt = $conn->prepare("SELECT username FROM users WHERE ordered = ?");
-$stmt->bind_param("s", $keyword);
+$stmt->bind_param("s", $searchValue);
 $stmt->execute();
 $result = $stmt->get_result();
 

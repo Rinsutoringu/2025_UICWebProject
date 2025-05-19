@@ -1,5 +1,4 @@
 # 2025_UICWebProject
-
 OK, here is our Web Project for UIC 2025.
 
 **Project document is here**

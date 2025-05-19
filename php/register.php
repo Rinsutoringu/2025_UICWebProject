@@ -27,6 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
     echo("User registered successfully.");
-    header("Location: ../index.html");
+    header("Location: ../pages/registersuccess.html");
     exit();
 }

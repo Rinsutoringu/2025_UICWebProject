@@ -37,23 +37,33 @@ function showSelectedHometown() {
             break;
 
         case "hometown1":
-            loadHTML("towns/fuan.html", "showhometown");
-            displayInput.value = "HomeTown 1";
+            loadHTML("towns/zhuhai.html", "showhometown");
+            displayInput.value = "Zhuhai";
             break;
 
         case "hometown2":
-            loadHTML("towns/guangzhou.html", "showhometown");
-            displayInput.value = "HomeTown 2";
+            loadHTML("towns/shenzhen.html", "showhometown");
+            displayInput.value = "Shenzhen";
             break;
 
         case "hometown3":
             loadHTML("towns/shenyang.html", "showhometown");
-            displayInput.value = "HomeTown 3";
+            displayInput.value = "Shenyang";
             break;
 
         case "hometown4":
-            loadHTML("towns/zhuhai.html", "showhometown");
-            displayInput.value = "HomeTown 4";
+            loadHTML("towns/guangzhou.html", "showhometown");
+            displayInput.value = "Guangzhou";
+            break;
+
+        case "hometown5":
+            loadHTML("towns/hefei.html", "showhometown");
+            displayInput.value = "Hefei";
+            break;
+        
+        case "hometown6":
+            loadHTML("towns/weifang.html", "showhometown");
+            displayInput.value = "Weifang";
             break;
 
         default:
