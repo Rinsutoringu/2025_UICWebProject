@@ -7,7 +7,7 @@
 function loadHTML(fileName, targetId) {
     const xhr = new XMLHttpRequest();
     console.log("Preparing to load file:", fileName);
-    xhr.open("GET", `../php/setpage.php?file=${fileName}`, true);
+    xhr.open("GET", `php/setpage.php?file=${fileName}`, true);
     console.log("Loading:", fileName, "into", targetId);
     xhr.onload = function () {if (xhr.status === 200) document.getElementById(targetId).innerHTML = xhr.responseText;};
     xhr.send();
@@ -144,7 +144,7 @@ function subscribe() {
 }
 
 function showlogin() {
-    fetch("../php/checklogin.php")
+    fetch("php/checklogin.php")
         .then(response => response.json())
         .then(data => {
             console.log("Login status:", data);
@@ -168,7 +168,7 @@ function showhometown() {
     loadHTML('hometown.html', 'maintablebody')
 }
 function showhometown() {
-    fetch("../php/checklogin.php")
+    fetch("php/checklogin.php")
         .then(response => response.json())
         .then(data => {
             console.log("Login status:", data);
