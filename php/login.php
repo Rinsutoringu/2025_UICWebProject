@@ -15,20 +15,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    if (getPwd($table, $usr) !== null) {
-        echo "User already exists.";
-        header("Location: ../pages/loginfail.html");
-        session_unset();
-        exit();
-    }
-
     if (!login($table, $usr, $pwd)) {
-        echo "Failed to login user.";
+        echo "Invalid username or password.";
         header("Location: ../pages/loginfail.html");
         session_unset();
         exit();
     }
-
+    
     $_SESSION['logged_in'] = true;
     $_SESSION['username'] = $usr;
     echo "User login successfully.";

@@ -26,10 +26,10 @@ function getAll($table) {
  * @param string $id the id of the user
  * @return string|null the password of the user or null if not found
  */
-function getPwd($table, $id) {
-    session_start();
+function getPwd($table, $usr) {
+    //session_start();
     global $conn;
-    $sql = "SELECT password FROM $table WHERE user_index = '$id'";
+    $sql = "SELECT password FROM $table WHERE username = '$usr'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         return $result->fetch_assoc()['password'];
@@ -46,10 +46,10 @@ function getPwd($table, $id) {
  * @return bool true if the user was registered successfully, false otherwise
  * @throws Exception if the table does not exist
  */
-function register($table, $username, $password) {
+function register($table, $username, $password, $realname) {
     session_start();
     global $conn;
-    $sql = "INSERT INTO $table (username, password, regdate, state, ordered) VALUES ('$username', '$password', NOW(), 1, 'none')";
+    $sql = "INSERT INTO $table (username, password, regdate, state, ordered, real_name) VALUES ('$username', '$password', NOW(), 1, 'none', '$realname')";
     if ($conn->query($sql) === TRUE) {
         return true;
     } else {
@@ -77,7 +77,7 @@ function login($table, $username, $password) {
  * @return bool true if the table exists, false otherwise
  */
 function checkTableExists($table) {
-    session_start();
+    //session_start();
     global $conn;
     // $sql = "SELECT "
     $sql = "SHOW TABLES LIKE '$table'";

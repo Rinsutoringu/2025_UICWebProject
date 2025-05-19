@@ -7,13 +7,6 @@ function setlogin() {
     $_SESSION['logged_in'] = true;
     $_SESSION['username'] = $_POST['logusr'];
 }
-
-function setreg() {
-    session_start();
-    $_SESSION['logged_in'] = true;
-    $_SESSION['username'] = $_POST['regusr'];
-}
-
 function unsetlogin() {
     session_start();
     unset($_SESSION['logged_in']);

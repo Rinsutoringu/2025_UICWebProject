@@ -3,17 +3,13 @@
  * @param {*} fileName The file name to load
  * @param {*} targetId The target id to load the file into
  */
+
 function loadHTML(fileName, targetId) {
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", "php/setpage.php?file=" + encodeURIComponent(fileName), true);
-    xhr.onload = function () {
-        const target = document.getElementById(targetId);
-        if (xhr.status === 200 && target) {
-            target.innerHTML = xhr.responseText;
-        } else if (!target) {
-            console.error("Target element not found:", targetId);
-        }
-    };
+    console.log("Preparing to load file:", fileName);
+    xhr.open("GET", `../php/setpage.php?file=${fileName}`, true);
+    console.log("Loading:", fileName, "into", targetId);
+    xhr.onload = function () {if (xhr.status === 200) document.getElementById(targetId).innerHTML = xhr.responseText;};
     xhr.send();
 }
 
@@ -73,12 +69,18 @@ function registerNewMember(event) {
     const regusr = document.getElementById("regusr").value;
     const regpwd = document.getElementById("regpwd").value;
     const reregpwd = document.getElementById("reregpwd").value;
-    if (!regusr || !regpwd || !reregpwd) {
+    const realname = document.getElementById("realname").value;
+    if (!regusr || !regpwd || !reregpwd || !realname) {
         alert("Please fill in all fields.");
         return false;
     }
     if (regpwd !== reregpwd) {
         alert("Passwords do not match.");
+        return false;
+    }
+    // if realname is digit, return false
+    if (/^\d+$/.test(realname)) {
+        alert("Real name cannot be a digit.");
         return false;
     }
     event.target.submit(); 
@@ -106,7 +108,7 @@ function subscribe() {
         alert("Please select a hometown first.");
         return;
     }
-    fetch("php/subscribe.php", {
+    fetch("../php/subscribe.php", {
         // post method
         method: "POST",
         headers: {
@@ -132,7 +134,7 @@ function subscribe() {
 }
 
 function showlogin() {
-    fetch("php/checklogin.php")
+    fetch("../php/checklogin.php")
         .then(response => response.json())
         .then(data => {
             console.log("Login status:", data);
@@ -148,11 +150,7 @@ function showlogin() {
 }
 
 function logout() {
-    fetch("php/logout.php")
-        .then(() => {
-            // 退出后跳转到首页或刷新页面
-            window.location.href = "index.html";
-        });
+    fetch("../php/logout.php")
 }
 
 function showhometown() {
@@ -160,7 +158,7 @@ function showhometown() {
     loadHTML('hometown.html', 'maintablebody')
 }
 function showhometown() {
-    fetch("php/checklogin.php")
+    fetch("../php/checklogin.php")
         .then(response => response.json())
         .then(data => {
             console.log("Login status:", data);
@@ -177,6 +175,16 @@ function showhometown() {
 
 function jumpToIndexAndLoad() {
     window.location.href = "../index.html?load=hometownlogin.html";
+}
+
+function updateSearchAction(selectedType) {
+    const form = document.getElementById('searchForm');
+    
+    if (selectedType === 'user') {
+        form.action = '/php/searchusers.php';
+    } else if (selectedType === 'city') {
+        form.action = '/php/searchcities.php';
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
